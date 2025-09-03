@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Card from "../components/Card";
 import Pagination from "../components/Pagination";
@@ -14,6 +15,7 @@ const Comics = () => {
   const [page, setPage] = useState(1);
   const [count, setCount] = useState(0);
   const [favorites, setFavorites] = useState(getFavorites("comics"));
+  const navigate = useNavigate();
 
   const limit = 100;
 
@@ -75,7 +77,7 @@ const Comics = () => {
               description={comic.description}
               isFavorite={favorites.includes(comic._id)}
               onToggleFavorite={() => handleFavoriteToggle(comic._id)}
-              onClick={() => {}}
+              onClick={() => navigate(`/comic/${comic._id}`)}
             />
           );
         })}

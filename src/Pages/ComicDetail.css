@@ -1,0 +1,30 @@
+/* src/Pages/ComicDetail.css */
+
+.comic-header {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+  align-items: flex-start;
+}
+
+.comic-header img {
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.comic-header div {
+  flex: 1;
+}
+
+.comic-header h2 {
+  margin-bottom: 16px;
+  font-size: 32px;
+}
+
+.comic-header p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #444;
+}
