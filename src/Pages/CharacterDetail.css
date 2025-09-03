@@ -1,0 +1,49 @@
+.character-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.character-header img {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.character-header div {
+  max-width: 600px;
+}
+
+.character-header h2 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.character-header p {
+  font-size: 16px;
+  color: #444;
+}
+
+/* Section des comics */
+.comics-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.comics-list h3 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Réutilise .cards-container */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}

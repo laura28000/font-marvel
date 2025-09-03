@@ -1,0 +1,40 @@
+/* src/components/Pagination.css */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.page-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.page-btn:hover { background: #f5f5f5; }
+.page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #fafafa;
+}
+
+.page-info {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  height: 34px;
+  padding: 0 8px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  background: #fff;
+}

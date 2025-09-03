@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  justify-content: center; /* Centrer tout */
+  align-items: center;
+  padding: 16px 24px;
+  background-color: black;
+  gap: 48px;
+}
+
+
+.logo {
+  height: 40px;
+  max-width: 120px;
+  object-fit: contain;
+  display: block;
+}
+
+
+.header-nav {
+  display: flex;
+  gap: 24px;
+}
+
+.header-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.header-nav a.active {
+  color: #ed1d24; /* rouge Marvel */
+}

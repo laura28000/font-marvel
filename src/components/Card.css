@@ -1,0 +1,54 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #fff;
+}
+
+.card-media {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.fav-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: none;
+  background: #fff;
+  border-radius: 50%;
+  padding: 4px 6px;
+  cursor: pointer;
+}
+.fav-btn.is-active {
+  background: #ffe6ea;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 8px;
+}
+
+.card-body h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-body p {
+  font-size: 14px;
+  margin: 0;
+}

@@ -1,0 +1,28 @@
+/* Reset simple */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Corps global */
+body {
+  font-family: 'Bebas Neue', Arial, sans-serif; /* ✅ Police Marvel */
+  font-size: 16px;
+  background: #f7f7f7;
+  color: #222;
+}
+
+
+/* Lien par défaut */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Conteneur général si tu veux centrer les pages */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
