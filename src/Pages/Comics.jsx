@@ -6,7 +6,7 @@ import SearchBar from "../components/SearchBar";
 import { getFavorites, saveFavorites } from "../utils/localStorage";
 import "./Comics.css";
 
-const API = import.meta.env.VITE_API_URL; // <- .env.local : VITE_API_URL=https://ton-backend...
+const API_URL = import.meta.env.VITE_API_URL;
 
 const Comics = () => {
   const [comics, setComics] = useState([]);
@@ -20,11 +20,10 @@ const Comics = () => {
   useEffect(() => {
     const fetchComics = async () => {
       try {
-        const { data } = await axios.get(`${API}/comics`, {
+        const { data } = await axios.get(`${API_URL}/comics`, {
           params: { title: search, page },
         });
 
-        // tri alphabétique + sécurisation HTTPS des images à l'affichage
         const sorted = [...data.results].sort((a, b) =>
           (a.title || "").localeCompare(b.title || "")
         );
@@ -35,7 +34,7 @@ const Comics = () => {
       }
     };
     fetchComics();
-  }, [API, search, page]);
+  }, [API_URL, search, page]);
 
   const handleFavoriteToggle = (comicId) => {
     setFavorites((prev) => {
@@ -64,7 +63,10 @@ const Comics = () => {
 
       <div className="cards-container">
         {comics.map((comic) => {
-          const url = `${comic.thumbnail.path}/portrait_uncanny.${comic.thumbnail.extension}`.replace("http://","https://");
+          const url = `${comic.thumbnail.path}/portrait_uncanny.${comic.thumbnail.extension}`.replace(
+            "http://",
+            "https://"
+          );
           return (
             <Card
               key={comic._id}
