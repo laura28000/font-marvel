@@ -1,5 +1,4 @@
 import { memo, useMemo } from "react";
-import PropTypes from "prop-types";
 import "./Card.css";
 
 const Card = ({
@@ -53,15 +52,6 @@ const Card = ({
       </div>
     </article>
   );
-};
-
-Card.propTypes = {
-  image: PropTypes.string,
-  title: PropTypes.string,
-  description: PropTypes.string,
-  isFavorite: PropTypes.bool,
-  onToggleFavorite: PropTypes.func,
-  onClick: PropTypes.func,
 };
 
 export default memo(Card);
