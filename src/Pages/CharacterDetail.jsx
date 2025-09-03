@@ -5,6 +5,8 @@ import Card from "../components/Card";
 import { getFavorites, saveFavorites } from "../utils/localStorage";
 import "./CharacterDetail.css";
 
+const API = import.meta.env.VITE_API_URL; // <- Assure-toi qu’il est bien défini
+
 const CharacterDetail = () => {
   const { id } = useParams();
 
@@ -15,32 +17,28 @@ const CharacterDetail = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // 1. Infos du personnage
-        const charResponse = await axios.get(`https://TON_BACKEND_URL/character/${id}`);
+        console.log("🔍 Fetching from:", `${API}/character/${id}`);
+
+        const charResponse = await axios.get(`${API}/character/${id}`);
         setCharacter(charResponse.data);
 
-        // 2. Comics liés au personnage
-        const comicsResponse = await axios.get(`https://TON_BACKEND_URL/comics`, {
-          params: {
-            characterId: id,
-          },
+        const comicsResponse = await axios.get(`${API}/comics`, {
+          params: { characterId: id },
         });
         setComics(comicsResponse.data.results);
       } catch (error) {
-        console.error("Erreur lors du chargement des données :", error);
+        console.error("❌ Erreur lors du chargement des données :", error);
       }
     };
 
     fetchData();
-  }, [id]);
+  }, [id, API]);
 
   const handleFavoriteToggle = (comicId) => {
-    let updated;
-    if (favorites.includes(comicId)) {
-      updated = favorites.filter((id) => id !== comicId);
-    } else {
-      updated = [...favorites, comicId];
-    }
+    const updated = favorites.includes(comicId)
+      ? favorites.filter((id) => id !== comicId)
+      : [...favorites, comicId];
+
     setFavorites(updated);
     saveFavorites("comics", updated);
   };
