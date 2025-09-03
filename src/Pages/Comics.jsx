@@ -65,10 +65,11 @@ const Comics = () => {
 
       <div className="cards-container">
         {comics.map((comic) => {
-          const url = `${comic.thumbnail.path}/portrait_uncanny.${comic.thumbnail.extension}`.replace(
+          const url = `${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension}`.replace(
             "http://",
             "https://"
           );
+
           return (
             <Card
               key={comic._id}
@@ -93,3 +94,4 @@ const Comics = () => {
 };
 
 export default Comics;
+

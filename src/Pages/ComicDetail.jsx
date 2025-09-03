@@ -26,7 +26,7 @@ const ComicDetail = () => {
 
   if (!comic) return <p>Chargement en cours...</p>;
 
-  const url = `${comic.thumbnail.path}/portrait_uncanny.${comic.thumbnail.extension}`.replace("http://", "https://");
+  const url = `${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension}`.replace("http://", "https://");
 
   return (
     <main className="comic-detail">
@@ -38,3 +38,4 @@ const ComicDetail = () => {
 };
 
 export default ComicDetail;
+

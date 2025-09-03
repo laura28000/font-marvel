@@ -64,7 +64,7 @@ const CharacterDetail = () => {
               {comics.map((comic) => (
                 <Card
                   key={comic._id}
-                  image={`${comic.thumbnail.path}/portrait_uncanny.${comic.thumbnail.extension}`}
+                  image={`${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension}`}
                   title={comic.title}
                   description={comic.description}
                   isFavorite={favorites.includes(comic._id)}
