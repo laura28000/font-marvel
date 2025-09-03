@@ -1,7 +1,7 @@
 // src/App.jsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Characters from "./pages/Characters";
+import Characters from "./Pages/Characters";
 import Comics from "./pages/Comics";
 import CharacterDetail from "./pages/CharacterDetail";
 import Favorites from "./pages/Favorites";
