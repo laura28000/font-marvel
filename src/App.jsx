@@ -1,9 +1,7 @@
-// src/App.jsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Characters from "./Pages/Characters";
 import Comics from "./Pages/Comics";
-import CharacterDetail from "./Pages/CharacterDetail";
 import Favorites from "./Pages/Favorites";
 import Landing from "./Pages/Landing";
 import "./App.css";
@@ -15,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/characters" element={<Characters />} />
-        <Route path="/character/:id" element={<CharacterDetail />} />
+        {/* <Route path="/character/:id" element={<CharacterDetail />} /> ❌ supprimée */}
         <Route path="/comics" element={<Comics />} />
         <Route path="/favorites" element={<Favorites />} />
       </Routes>
