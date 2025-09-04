@@ -13,7 +13,7 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Landing />}
+        <Route path="/" element={<Landing />} />
         <Route path="/characters" element={<Characters />} />
         <Route path="/character/:id" element={<CharacterDetail />} />
         <Route path="/comics" element={<Comics />} />
