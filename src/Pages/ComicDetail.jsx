@@ -13,8 +13,10 @@ const ComicDetail = () => {
   useEffect(() => {
     const fetchComic = async () => {
       try {
-        // ✅ Appel direct vers /comic/:id
-        const { data } = await axios.get(`${API}/comic/${id}`);
+        // ✅ Appel correct vers /comic?comicId=xxx
+        const { data } = await axios.get(`${API}/comic`, {
+          params: { comicId: id },
+        });
         setComic(data);
       } catch (error) {
         console.error("Erreur lors du chargement du comic :", error);
