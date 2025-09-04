@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ Ajout ici
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Card from "../components/Card";
 import Pagination from "../components/Pagination";
@@ -14,7 +14,7 @@ const Characters = () => {
   const [count, setCount] = useState(0);
   const [favorites, setFavorites] = useState(getFavorites("characters"));
 
-  const navigate = useNavigate(); // ✅ Hook de navigation
+  const navigate = useNavigate();
   const limit = 100;
 
   useEffect(() => {
@@ -23,10 +23,7 @@ const Characters = () => {
         const response = await axios.get(
           `${import.meta.env.VITE_API_URL}/characters`,
           {
-            params: {
-              name: search,
-              page,
-            },
+            params: { name: search, page },
           }
         );
         setCharacters(response.data.results);
@@ -40,13 +37,11 @@ const Characters = () => {
   }, [search, page]);
 
   const handleFavoriteToggle = (characterId) => {
-    setFavorites((prev) => {
-      const updated = prev.includes(characterId)
-        ? prev.filter((id) => id !== characterId)
-        : [...prev, characterId];
-      saveFavorites("characters", updated);
-      return updated;
-    });
+    const updated = favorites.includes(characterId)
+      ? favorites.filter((id) => id !== characterId)
+      : [...favorites, characterId];
+    setFavorites(updated);
+    saveFavorites("characters", updated);
   };
 
   return (
@@ -63,20 +58,28 @@ const Characters = () => {
       />
 
       <div className="cards-container">
-        {characters.map((char) => (
-          <Card
-            key={char._id}
-            image={`${char.thumbnail.path}/portrait_xlarge.${char.thumbnail.extension}`.replace(
-              "http://",
-              "https://"
-            )}
-            title={char.name}
-            description={char.description}
-            isFavorite={favorites.includes(char._id)}
-            onToggleFavorite={() => handleFavoriteToggle(char._id)}
-            onClick={() => navigate(`/character/${char._id}`)} // ✅ Navigation React Router
-          />
-        ))}
+        {characters.map((char) => {
+          const charId = char._id || char.id; // Sécurité
+          const imageUrl = `${char.thumbnail.path}/portrait_fantastic.${char.thumbnail.extension}`.replace(
+            "http://",
+            "https://"
+          );
+
+          // Ignore les images placeholder
+          if (char.thumbnail.path.includes("image_not_available")) return null;
+
+          return (
+            <Card
+              key={charId}
+              image={imageUrl}
+              title={char.name}
+              description={char.description}
+              isFavorite={favorites.includes(charId)}
+              onToggleFavorite={() => handleFavoriteToggle(charId)}
+              onClick={() => navigate(`/character/${charId}`)}
+            />
+          );
+        })}
       </div>
 
       <Pagination
@@ -89,7 +92,5 @@ const Characters = () => {
 };
 
 export default Characters;
-
-
 
 
