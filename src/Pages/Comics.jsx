@@ -66,7 +66,10 @@ const Comics = () => {
 
       <div className="cards-container">
         {comics.map((comic) => {
-          const url = (comic.picture || "").replace("http://", "https://");
+          const url = `${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension}`.replace(
+            "http://",
+            "https://"
+          );
 
           return (
             <Card
@@ -76,7 +79,7 @@ const Comics = () => {
               description={comic.description}
               isFavorite={favorites.includes(comic._id)}
               onToggleFavorite={() => handleFavoriteToggle(comic._id)}
-              onClick={() => navigate(`/comic/${comic._id}`)}
+              onClick={() => navigate(`/comic/${comic._id}`)} // ✅ Navigation vers ComicDetail
             />
           );
         })}
