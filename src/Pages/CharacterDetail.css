@@ -1,0 +1,56 @@
+/* === CONTAINER PRINCIPAL === */
+.character-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: #121212;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.character-header img {
+  width: 220px;
+  max-width: 90%;
+  height: auto;
+  border-radius: 12px;
+  border: 3px solid #ed1d24;
+  box-shadow: 0 0 25px rgba(237, 29, 36, 0.4);
+}
+
+/* === TITRE & DESCRIPTION === */
+.character-header h2 {
+  font-size: 2rem;
+  color: #ed1d24;
+  margin: 0;
+}
+
+.character-header p {
+  font-size: 1rem;
+  max-width: 700px;
+  color: #ccc;
+}
+
+/* === SECTION COMICS LIÉS === */
+.comics-list {
+  padding: 2rem;
+  background-color: #1a1a1a;
+  color: white;
+  text-align: center;
+}
+
+.comics-list h3 {
+  font-size: 1.5rem;
+  color: #ed1d24;
+  margin-bottom: 1.5rem;
+}
+
+/* === GRILLE DE CARTES === */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
