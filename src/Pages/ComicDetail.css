@@ -1,30 +1,40 @@
-/* src/Pages/ComicDetail.css */
-
-.comic-header {
+.comic-detail {
+  background-color: #000;
+  color: white;
+  min-height: 100vh;
+  padding: 40px 20px;
   display: flex;
-  gap: 24px;
-  margin-bottom: 32px;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
 }
 
-.comic-header img {
-  width: 300px;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+.comic-container {
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+  background: #111;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
 }
 
-.comic-header div {
-  flex: 1;
+.comic-image {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 4px solid #ed1d24;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
+  margin-bottom: 20px;
 }
 
-.comic-header h2 {
-  margin-bottom: 16px;
-  font-size: 32px;
+.comic-container h2 {
+  font-size: 1.5rem;
+  color: #ed1d24;
+  margin-bottom: 15px;
 }
 
-.comic-header p {
-  font-size: 16px;
-  line-height: 1.5;
-  color: #444;
+.comic-container p {
+  font-size: 1rem;
+  color: #ccc;
 }

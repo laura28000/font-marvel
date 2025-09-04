@@ -1,49 +1,69 @@
+/* ==== CONTENEUR GENERAL ==== */
+main {
+  background-color: #000;
+  color: white;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+/* ==== SECTION ENTÊTE DU PERSONNAGE ==== */
 .character-header {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  gap: 24px;
-  margin-bottom: 32px;
+  text-align: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
 }
 
 .character-header img {
-  width: 200px;
+  width: 280px;
   height: auto;
-  border-radius: 8px;
-  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(230, 36, 41, 0.5);
+  transition: transform 0.3s ease;
 }
 
-.character-header div {
-  max-width: 600px;
+.character-header img:hover {
+  transform: scale(1.03);
 }
 
 .character-header h2 {
-  font-size: 28px;
-  margin-bottom: 8px;
+  font-size: 2rem;
+  color: #ed1d24;
+  margin-bottom: 0.5rem;
 }
 
 .character-header p {
-  font-size: 16px;
-  color: #444;
+  color: #ccc;
+  max-width: 800px;
+  line-height: 1.6;
+  font-size: 1rem;
 }
 
-/* Section des comics */
-.comics-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
+/* ==== SECTION COMICS ==== */
 .comics-list h3 {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 1.5rem;
+  color: #ed1d24;
+  margin-bottom: 1.5rem;
   text-align: center;
 }
 
-/* Réutilise .cards-container */
+/* ==== GRILLE DE COMICS ==== */
 .cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+  .character-header {
+    flex-direction: column;
+  }
+
+  .character-header img {
+    width: 80%;
+    max-width: 300px;
+  }
 }

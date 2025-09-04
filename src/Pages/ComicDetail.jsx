@@ -26,16 +26,20 @@ const ComicDetail = () => {
 
   if (!comic) return <p>Chargement en cours...</p>;
 
-  const url = `${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension}`.replace("http://", "https://");
+  const url = `${comic.thumbnail.path}/portrait_uncanny.${comic.thumbnail.extension}`.replace(
+    "http://",
+    "https://"
+  );
 
   return (
     <main className="comic-detail">
-      <img src={url} alt={comic.title} />
-      <h2>{comic.title}</h2>
-      <p>{comic.description || "Pas de description disponible."}</p>
+      <div className="comic-container">
+        <img src={url} alt={comic.title} className="comic-image" />
+        <h2>{comic.title}</h2>
+        <p>{comic.description || "Pas de description disponible."}</p>
+      </div>
     </main>
   );
 };
 
 export default ComicDetail;
-

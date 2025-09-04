@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // ✅ Étape 4
 import axios from "axios";
 import Card from "../components/Card";
 import { getFavorites, saveFavorites } from "../utils/localStorage";
 import "./Favorites.css";
+
+const API = import.meta.env.VITE_API_URL; // ✅ Étape 1
 
 const Favorites = () => {
   const [favoriteCharacters, setFavoriteCharacters] = useState([]);
@@ -11,18 +14,20 @@ const Favorites = () => {
   const characterIds = getFavorites("characters");
   const comicIds = getFavorites("comics");
 
+  const navigate = useNavigate(); // ✅ Étape 4
+
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
         if (characterIds.length > 0) {
-          const responseChar = await axios.post("https://TON_BACKEND_URL/favorites/characters", {
+          const responseChar = await axios.post(`${API}/favorites/characters`, {
             ids: characterIds,
           });
           setFavoriteCharacters(responseChar.data.results);
         }
 
         if (comicIds.length > 0) {
-          const responseComics = await axios.post("https://TON_BACKEND_URL/favorites/comics", {
+          const responseComics = await axios.post(`${API}/favorites/comics`, {
             ids: comicIds,
           });
           setFavoriteComics(responseComics.data.results);
@@ -62,12 +67,15 @@ const Favorites = () => {
             favoriteCharacters.map((char) => (
               <Card
                 key={char._id}
-                image={`${char.thumbnail.path}/portrait_xlarge.${char.thumbnail.extension}`}
+                image={`${char.thumbnail.path}/portrait_xlarge.${char.thumbnail.extension}`.replace(
+                  "http://",
+                  "https://"
+                )}
                 title={char.name}
                 description={char.description}
                 isFavorite={true}
                 onToggleFavorite={() => handleRemoveFavorite("characters", char._id)}
-                onClick={() => (window.location.href = `/character/${char._id}`)}
+                onClick={() => navigate(`/character/${char._id}`)} // ✅ Étape 4
               />
             ))
           ) : (
@@ -83,12 +91,15 @@ const Favorites = () => {
             favoriteComics.map((comic) => (
               <Card
                 key={comic._id}
-                image={`${comic.thumbnail.path}/portrait_xlarge.${comic.thumbnail.extension}`}
+                image={`${comic.thumbnail.path}/portrait_xlarge.${comic.thumbnail.extension}`.replace(
+                  "http://",
+                  "https://"
+                )}
                 title={comic.title}
                 description={comic.description}
                 isFavorite={true}
                 onToggleFavorite={() => handleRemoveFavorite("comics", comic._id)}
-                onClick={() => {}}
+                onClick={() => navigate(`/comic/${comic._id}`)} // ✅ BONUS si tu veux un détail
               />
             ))
           ) : (

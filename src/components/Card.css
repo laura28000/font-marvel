@@ -1,58 +1,83 @@
+/* === CARTE PRINCIPALE === */
 .card {
   display: flex;
   flex-direction: column;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border: 1px solid transparent;
+  border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  background: #fff;
+  background: #111; /* ✅ fond sombre Marvel */
+  color: white; /* ✅ texte visible */
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.15);
 }
 
+.card:hover {
+  transform: scale(1.03);
+  border-color: #ed1d24;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+}
+
+/* === IMAGE === */
 .card-media {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #000;
 }
 
 .card-media img {
   width: auto;
   max-width: 100%;
-  max-height: 200px; /* <-- limite verticale */
+  max-height: 200px;
   display: block;
   margin: 0 auto;
   border-radius: 6px;
 }
 
-
+/* === BOUTON FAVORIS === */
 .fav-btn {
   position: absolute;
   top: 8px;
   right: 8px;
   border: none;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
   border-radius: 50%;
-  padding: 4px 6px;
+  padding: 6px 8px;
   cursor: pointer;
-}
-.fav-btn.is-active {
-  background: #ffe6ea;
+  transition: background 0.3s ease;
 }
 
+.fav-btn:hover {
+  background: #ed1d24;
+}
+
+.fav-btn.is-active {
+  background: #ed1d24;
+  color: white;
+}
+
+/* === CONTENU (TEXTE) === */
 .card-body {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 12px;
   gap: 8px;
 }
 
 .card-body h3 {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: bold;
   margin: 0;
+  color: #ed1d24;
+  text-align: center;
 }
 
 .card-body p {
-  font-size: 14px;
+  font-size: 0.9rem;
   margin: 0;
+  color: #ccc;
+  text-align: center;
 }

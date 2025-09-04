@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // ✅ Ajout ici
 import axios from "axios";
 import Card from "../components/Card";
 import Pagination from "../components/Pagination";
@@ -13,6 +14,7 @@ const Characters = () => {
   const [count, setCount] = useState(0);
   const [favorites, setFavorites] = useState(getFavorites("characters"));
 
+  const navigate = useNavigate(); // ✅ Hook de navigation
   const limit = 100;
 
   useEffect(() => {
@@ -72,7 +74,7 @@ const Characters = () => {
             description={char.description}
             isFavorite={favorites.includes(char._id)}
             onToggleFavorite={() => handleFavoriteToggle(char._id)}
-            onClick={() => (window.location.href = `/character/${char._id}`)}
+            onClick={() => navigate(`/character/${char._id}`)} // ✅ Navigation React Router
           />
         ))}
       </div>
@@ -87,6 +89,7 @@ const Characters = () => {
 };
 
 export default Characters;
+
 
 
 

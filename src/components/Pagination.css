@@ -1,40 +1,38 @@
-/* src/components/Pagination.css */
 .pagination {
+  margin-top: 2rem;
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 8px;
-  margin: 20px 0;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  background-color: transparent;
 }
 
 .page-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 36px;
-  height: 34px;
-  padding: 0 10px;
-  border: 1px solid #ccc;
-  background: #fff;
-  border-radius: 4px;
+  background-color: #111; /* Fond sombre Marvel */
+  color: white;
+  border: 1px solid #333;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.page-btn:hover { background: #f5f5f5; }
+.page-btn:hover:not(:disabled) {
+  background-color: #ed1d24;
+  color: white;
+  border-color: #ed1d24;
+  transform: scale(1.05);
+}
+
 .page-btn:disabled {
-  opacity: 0.5;
+  opacity: 0.4;
   cursor: not-allowed;
-  background: #fafafa;
 }
 
 .page-info {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 120px;
-  height: 34px;
-  padding: 0 8px;
-  border: 1px solid #eee;
-  border-radius: 4px;
-  background: #fff;
+  color: #ccc;
+  font-size: 14px;
+  margin: 0 8px;
 }
