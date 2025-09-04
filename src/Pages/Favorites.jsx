@@ -1,24 +1,23 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ Étape 4
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Card from "../components/Card";
 import { getFavorites, saveFavorites } from "../utils/localStorage";
 import "./Favorites.css";
 
-const API = import.meta.env.VITE_API_URL; // ✅ Étape 1
+const API = import.meta.env.VITE_API_URL;
 
 const Favorites = () => {
   const [favoriteCharacters, setFavoriteCharacters] = useState([]);
   const [favoriteComics, setFavoriteComics] = useState([]);
-
-  const characterIds = getFavorites("characters");
-  const comicIds = getFavorites("comics");
-
-  const navigate = useNavigate(); // ✅ Étape 4
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
+        const characterIds = getFavorites("characters");
+        const comicIds = getFavorites("comics");
+
         if (characterIds.length > 0) {
           const responseChar = await axios.post(`${API}/favorites/characters`, {
             ids: characterIds,
@@ -41,16 +40,14 @@ const Favorites = () => {
   }, []);
 
   const handleRemoveFavorite = (type, id) => {
-    let updated;
-
     if (type === "characters") {
-      updated = characterIds.filter((itemId) => itemId !== id);
+      const updated = getFavorites("characters").filter((itemId) => itemId !== id);
       saveFavorites("characters", updated);
       setFavoriteCharacters((prev) => prev.filter((item) => item._id !== id));
     }
 
     if (type === "comics") {
-      updated = comicIds.filter((itemId) => itemId !== id);
+      const updated = getFavorites("comics").filter((itemId) => itemId !== id);
       saveFavorites("comics", updated);
       setFavoriteComics((prev) => prev.filter((item) => item._id !== id));
     }
@@ -75,7 +72,7 @@ const Favorites = () => {
                 description={char.description}
                 isFavorite={true}
                 onToggleFavorite={() => handleRemoveFavorite("characters", char._id)}
-                onClick={() => navigate(`/character/${char._id}`)} // ✅ Étape 4
+                onClick={() => navigate(`/character/${char._id}`)}
               />
             ))
           ) : (
@@ -91,15 +88,19 @@ const Favorites = () => {
             favoriteComics.map((comic) => (
               <Card
                 key={comic._id}
-                image={`${comic.thumbnail.path}/portrait_xlarge.${comic.thumbnail.extension}`.replace(
-                  "http://",
-                  "https://"
-                )}
+                image={
+                  comic.thumbnail
+                    ? `${comic.thumbnail.path}/portrait_xlarge.${comic.thumbnail.extension}`.replace(
+                        "http://",
+                        "https://"
+                      )
+                    : (comic.picture || "").replace("http://", "https://")
+                }
                 title={comic.title}
                 description={comic.description}
                 isFavorite={true}
                 onToggleFavorite={() => handleRemoveFavorite("comics", comic._id)}
-                onClick={() => navigate(`/comic/${comic._id}`)} // ✅ BONUS si tu veux un détail
+                onClick={() => navigate(`/comic/${comic._id}`)}
               />
             ))
           ) : (
