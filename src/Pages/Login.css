@@ -1,7 +1,7 @@
 /* src/pages/Login.css */
 
 .login-page {
-  background-image: url("/assets/logo-login.png"); 
+  background-image: url("../assets/logo-login.jpg");
   background-size: cover;
   background-position: center;
   min-height: 100vh;

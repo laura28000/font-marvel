@@ -1,11 +1,14 @@
+/* src/Pages/Characters.css */
+
 .characters-page {
   min-height: 100vh;
+  width: 100vw;
   background-color: #000;
   color: white;
   padding: 2rem;
-  padding-top: 120px; /* ✅ marge haute pour éviter le chevauchement */
+  padding-top: 120px;
+  overflow-x: hidden;
 }
-
 
 .characters-page h2 {
   text-align: center;
@@ -14,15 +17,16 @@
   color: #ed1d24;
 }
 
-/* Grille de cartes responsive */
+/* Grille identique à comics */
 .cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
+  justify-items: center;
 }
 
-/* Pagination (si besoin de customiser ici) */
+/* Pagination */
 .pagination {
   margin-top: 2rem;
   display: flex;

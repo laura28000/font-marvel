@@ -57,7 +57,7 @@ function Header() {
           <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
             <Link to="/favorites" className="btn-favorites">
               <RiHeartFill className="heart-icon" />
-              <span className="favorites-text">Favorites</span>
+              <span className="favorites-text">Favoris</span>
               <div className="shine" />
             </Link>
           </motion.div>
@@ -66,10 +66,10 @@ function Header() {
         {/* Auth Buttons */}
         <div className="auth-links">
           <motion.div whileHover={{ scale: 1.05 }}>
-            <Link to="/login" className="auth-btn">Login</Link>
+            <Link to="/login" className="auth-btn">Se connecter</Link>
           </motion.div>
           <motion.div whileHover={{ scale: 1.05 }}>
-            <Link to="/signup" className="auth-btn">Signup</Link>
+            <Link to="/signup" className="auth-btn">S'inscrire</Link>
           </motion.div>
         </div>
       </div>

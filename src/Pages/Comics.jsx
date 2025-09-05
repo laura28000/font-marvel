@@ -52,7 +52,7 @@ const Comics = () => {
   const totalPages = Math.max(1, Math.ceil((count || 0) / limit));
 
   return (
-    <main>
+    <main className="comics-page">
       <h2>Comics Marvel</h2>
 
       <SearchBar

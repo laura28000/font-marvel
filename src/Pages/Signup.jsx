@@ -1,28 +1,39 @@
 // src/pages/Signup.jsx
 import { useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
-import "./Login.css"; // On réutilise le même style
+import { FaUser, FaEnvelope, FaLock, FaFacebookF, FaTwitter, FaDribbble } from "react-icons/fa";
+import "./Login.css"; // ✅ même CSS que Login
+
+const API = import.meta.env.VITE_API_URL;
 
 const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
-    console.log("Inscription avec :", { username, email, password });
-    // Tu peux ici envoyer les données à ton backend
+    try {
+      const response = await axios.post(`${API}/user/signup`, {
+        username,
+        email,
+        password,
+      });
+      const token = response.data.token;
+      document.cookie = `token=${token}; path=/`;
+      navigate("/");
+    } catch (err) {
+      setError("Erreur lors de l'inscription.");
+    }
   };
 
   return (
-    <main className="auth-page">
-      <div className="auth-container">
-        <img src="/images/marvel-logo.png" alt="Marvel Logo" className="logo" />
-
-        <form className="auth-form" onSubmit={handleSubmit}>
+    <div className="login-page">
+      <div className="login-overlay">
+        <form className="login-form" onSubmit={handleSignup}>
           <div className="input-group">
             <FaUser className="icon" />
             <input
@@ -56,29 +67,22 @@ const Signup = () => {
             />
           </div>
 
-          <button type="submit" className="auth-button">
-            Sign Up
+          <button className="login-btn" type="submit">
+            S'inscrire
           </button>
+
+          {error && <p className="error-msg">{error}</p>}
+
+          <p className="forgot">Vous avez déjà un compte ? Connectez-vous !</p>
+
+          <div className="social-login">
+            <FaFacebookF className="social-icon" />
+            <FaTwitter className="social-icon" />
+            <FaDribbble className="social-icon" />
+          </div>
         </form>
-
-        <p className="auth-switch">
-          Already have an account?{" "}
-          <span onClick={() => navigate("/login")}>Log in</span>
-        </p>
-
-        <div className="social-divider">
-          <hr />
-          <span>Or</span>
-          <hr />
-        </div>
-
-        <div className="social-icons">
-          <i className="fab fa-facebook-f"></i>
-          <i className="fab fa-twitter"></i>
-          <i className="fab fa-dribbble"></i>
-        </div>
       </div>
-    </main>
+    </div>
   );
 };
 

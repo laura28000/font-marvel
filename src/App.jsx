@@ -8,7 +8,7 @@ import Landing from "./Pages/Landing";
 import Login from "./Pages/Login";      // ✅ Ajouté
 import Signup from "./Pages/Signup";    // ✅ Ajouté
 
-import "./App.css";
+import "./index.css";
 
 function App() {
   return (

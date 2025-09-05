@@ -1,16 +1,17 @@
 /* === CARTE PRINCIPALE === */
 .card {
+  position: relative; /* ✅ Permet de contenir les éléments en absolute */
+  width: 180px;
+  padding: 1rem;
+  background-color: #111;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
-  border: 1px solid transparent;
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
-  background: #111; /* ✅ fond sombre Marvel */
-  color: white; /* ✅ texte visible */
-  transition: all 0.3s ease;
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.15);
+  align-items: center;
+  gap: 1rem;
 }
+
 
 .card:hover {
   transform: scale(1.03);

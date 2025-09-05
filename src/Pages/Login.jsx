@@ -21,7 +21,6 @@ const Login = () => {
         password,
       });
       const token = response.data.token;
-      // Enregistre le token dans un cookie
       document.cookie = `token=${token}; path=/`;
       navigate("/");
     } catch (err) {
@@ -32,11 +31,6 @@ const Login = () => {
   return (
     <div className="login-page">
       <div className="login-overlay">
-        <img
-          src="/assets/marvel-logo.png"
-          alt="Marvel"
-          className="marvel-logo"
-        />
         <form className="login-form" onSubmit={handleLogin}>
           <div className="input-group">
             <FaUser className="icon" />
@@ -61,12 +55,12 @@ const Login = () => {
           </div>
 
           <button className="login-btn" type="submit">
-            Login
+            Se connecter
           </button>
 
           {error && <p className="error-msg">{error}</p>}
 
-          <p className="forgot">Forgot Your Password?</p>
+          <p className="forgot">Vous avez oublié votre mot de passe ?</p>
 
           <div className="social-login">
             <FaFacebookF className="social-icon" />

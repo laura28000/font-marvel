@@ -1,9 +1,31 @@
-.cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
+/* src/Pages/Comics.css */
+
+.comics-page {
+  min-height: 100vh;
+  background-color: #000;
+  color: white;
+  padding: 2rem;
+  padding-top: 120px; /* Pour éviter le chevauchement avec le header */
 }
-.card {
-  width: 180px; /* fixe pour que les cartes aient la même taille */
+
+.comics-page h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #ed1d24;
+}
+
+/* Grille de cartes responsive */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Pagination */
+.pagination {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
 }

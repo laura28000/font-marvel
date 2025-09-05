@@ -1,11 +1,17 @@
 /* === CONTAINER PRINCIPAL === */
 .header {
-  background-color: #121212;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 80px;
+  background: linear-gradient(to right, #111 0%, #000 30%, #000 70%, #111 100%);
   color: white;
-  padding: 16px 32px;
-  position: relative;
-  z-index: 50;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 /* === EFFETS GLOW EN ARRIÈRE-PLAN === */
@@ -60,6 +66,8 @@
   align-items: center;
   position: relative;
   z-index: 1;
+  width: 100%;
+  padding: 0 2rem;
 }
 
 /* === LOGO / TITRE === */
@@ -143,63 +151,6 @@
   transform: translateX(200%);
 }
 
-/* === BOUTON MOBILE === */
-.mobile-toggle {
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  display: none;
-}
-
-/* === MENU MOBILE === */
-.mobile-menu {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.95);
-  padding-top: 80px;
-  z-index: 100;
-  display: none;
-}
-
-.mobile-menu-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 32px;
-}
-
-.mobile-link {
-  font-size: 20px;
-  color: #ccc;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.mobile-link:hover {
-  color: white;
-}
-
-.mobile-link.active {
-  color: #ed1d24;
-}
-
-/* === RESPONSIVE === */
-@media screen and (max-width: 768px) {
-  .nav-links,
-  .favorites-button {
-    display: none;
-  }
-
-  .mobile-toggle {
-    display: block;
-  }
-
-  .mobile-menu {
-    display: block;
-  }
-}
-
 /* === ANIMATIONS === */
 @keyframes shimmer {
   0% {
@@ -218,6 +169,7 @@
     opacity: 0.4;
   }
 }
+
 .auth-links {
   display: flex;
   gap: 10px;
