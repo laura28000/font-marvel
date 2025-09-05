@@ -5,6 +5,8 @@ import Comics from "./Pages/Comics";
 import CharacterDetail from "./Pages/CharacterDetail"; 
 import Favorites from "./Pages/Favorites";
 import Landing from "./Pages/Landing";
+import Login from "./Pages/Login";      // ✅ Ajouté
+import Signup from "./Pages/Signup";    // ✅ Ajouté
 
 import "./App.css";
 
@@ -15,9 +17,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/characters" element={<Characters />} />
-        <Route path="/character/:id" element={<CharacterDetail />} /> {/* ✅ Fermée */}
+        <Route path="/character/:id" element={<CharacterDetail />} />
         <Route path="/comics" element={<Comics />} />
         <Route path="/favorites" element={<Favorites />} />
+        <Route path="/login" element={<Login />} />     {/* ✅ Ajoutée */}
+        <Route path="/signup" element={<Signup />} />   {/* ✅ Ajoutée */}
       </Routes>
     </Router>
   );

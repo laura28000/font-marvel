@@ -218,3 +218,23 @@
     opacity: 0.4;
   }
 }
+.auth-links {
+  display: flex;
+  gap: 10px;
+  margin-left: 1rem;
+}
+
+.auth-btn {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.auth-btn:hover {
+  background: #ff0050;
+  color: #fff;
+}
