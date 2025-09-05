@@ -21,7 +21,7 @@ const Landing = () => {
       {/* ✅ Image principale Marvel */}
       <AnimatedSection>
         <img
-          src="/assets/landing-page.png"
+          src="assets/landing-page.png" 
           alt="Marvel Logo"
           className="landing-logo"
         />
@@ -44,7 +44,7 @@ const Landing = () => {
       {/* ✅ Image multiverse en bas */}
       <AnimatedSection delay={0.3}>
         <img
-          src="/assets/multiverse.jpeg"
+          src="assets/multiverse.jpeg" 
           alt="Univers Marvel"
           className="landing-bottom-image"
         />
